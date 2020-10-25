@@ -40,7 +40,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
     public int getItemCount() {
         return mainModels.size();
     }
-
+//
     class HorizontalViewHolder extends RecyclerView.ViewHolder {
 
         TextView hourTextView;
