@@ -51,6 +51,5 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
             hourTextView = itemView.findViewById(R.id.time_temperature);
             temperatureTextView = itemView.findViewById(R.id.hour_temperature);
         }
-
     }
 }
