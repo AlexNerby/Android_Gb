@@ -9,9 +9,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
-public class Citys2 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CitysSpinnerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private static final boolean LOG = true;
     private static final String TAG = "weatherOtherCityPage";
@@ -23,7 +22,7 @@ public class Citys2 extends AppCompatActivity implements AdapterView.OnItemSelec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_citys2);
+        setContentView(R.layout.activity_spinner);
 
         if (LOG) {
             Log.d(TAG, "Init in onCreate");
@@ -37,7 +36,7 @@ public class Citys2 extends AppCompatActivity implements AdapterView.OnItemSelec
         if (LOG) {
             Log.d(TAG, "Click ok");
         }
-        intent = new Intent(Citys2.this, MainActivity.class);
+        intent = new Intent(CitysSpinnerActivity.this, SecondActivity.class);
         intent.putExtra("city", editText.getText().toString());
         startActivity(intent);
     }

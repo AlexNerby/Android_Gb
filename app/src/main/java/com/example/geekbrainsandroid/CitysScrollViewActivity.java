@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class City extends AppCompatActivity implements View.OnClickListener {
+public class CitysScrollViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final boolean LOG = true;
     private static final String TAG = "weatherCityPage";
@@ -21,7 +21,7 @@ public class City extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_language);
+        setContentView(R.layout.activity_scroll);
 
         init();
     }
@@ -53,7 +53,7 @@ public class City extends AppCompatActivity implements View.OnClickListener {
                 if (LOG) {
                     Log.d(TAG, "intent.putExtra / startActivity");
                 }
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, SecondActivity.class);
                 intent.putExtra("city", textField.getText().toString());
                 startActivity(intent);
                 break;
@@ -76,7 +76,7 @@ public class City extends AppCompatActivity implements View.OnClickListener {
                 textField.setText(R.string.city6);
                 break;
             case R.id.buttonOther:
-                startActivity(new Intent(this, Citys2.class));
+                startActivity(new Intent(this, CitysSpinnerActivity.class));
         }
     }
 }

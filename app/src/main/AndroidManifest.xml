@@ -9,19 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GeekBrainsAndroid">
-        <activity android:name=".Citys2"></activity>
-        <activity android:name=".City">
+        <activity android:name=".CitysSpinnerActivity">
+            <intent-filter>
+                <action android:name=".CitysSpinnerActivity" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CitysScrollViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".SecondActivity">
             <intent-filter>
-                <action android:name=".MainActivity" />
+                <action android:name=".SecondActivity" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
