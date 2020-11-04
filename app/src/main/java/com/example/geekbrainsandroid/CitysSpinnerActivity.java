@@ -44,7 +44,7 @@ public class CitysSpinnerActivity extends AppCompatActivity implements AdapterVi
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if (LOG) {
-            Log.d(TAG, "init. or click spinner item");
+            Log.v(TAG, "init. or click spinner item");
         }
         editText.setText(adapterView.getItemAtPosition(i).toString());
     }

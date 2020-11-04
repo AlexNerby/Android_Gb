@@ -35,6 +35,8 @@
     <string name="check_box_Pressure">Pressure</string>
 
     <string name="other">Other</string>
+    <string name="yandex_linck">https://yandex.ru/pogoda/saint-petersburg?utm_source=serp&amp;utm_medium=desktop&amp;utm_campaign=wizard&amp;utm_content=wizard_desktop_main&amp;utm_term=main_info&amp;lat=59.951481&amp;lon=30.483906</string>
+    <string name="day_10">10 D.</string>
 
 
 </resources>

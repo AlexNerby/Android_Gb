@@ -6,9 +6,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +40,7 @@ public class SecondActivity extends AppCompatActivity {
     private TextView cityMain;
     private TextView temperatureMain;
     private Random random;
+    Button buttonLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,13 @@ public class SecondActivity extends AppCompatActivity {
         init();
         initHourList();
         initDayList();
+
+        buttonLink.setOnClickListener(view -> {
+            String url = getString(R.string.yandex_linck);
+            Uri uri = Uri.parse(url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        });
     }
 
     @Override
@@ -143,6 +155,7 @@ public class SecondActivity extends AppCompatActivity {
         if (LOG) {
             Log.v(TAG, "init variable in method init");
         }
+        buttonLink = findViewById(R.id.day_10);
         temperatureMain = findViewById(R.id.temperature_main);
         random = new Random();
         temperatureMain.setText(String.format(getString(R.string.temperature), random.nextInt(10)));
