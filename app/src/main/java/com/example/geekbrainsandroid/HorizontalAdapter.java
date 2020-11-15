@@ -17,7 +17,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
     ArrayList<MainModels> mainModels;
     Context context;
 
-    public HorizontalAdapter(Context context, ArrayList<MainModels> mainModels) {
+    public  HorizontalAdapter(Context context, ArrayList<MainModels> mainModels) {
         this.context = context;
         this.mainModels = mainModels;
     }

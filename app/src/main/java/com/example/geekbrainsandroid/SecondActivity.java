@@ -40,7 +40,7 @@ public class SecondActivity extends AppCompatActivity {
     private TextView cityMain;
     private TextView temperatureMain;
     private Random random;
-    Button buttonLink;
+    private Button buttonLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,63 +67,7 @@ public class SecondActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStart() {
-        Log.i(TAG_CYCLE_ACTIVITY, "onStart");
-        Toast.makeText(this, "onStart", Toast.LENGTH_LONG).show();
-        super.onStart();
-    }
 
-    @Override
-    protected void onResume() {
-        Log.i(TAG_CYCLE_ACTIVITY, "onResume");
-        Toast.makeText(this, "onResume", Toast.LENGTH_LONG).show();
-
-        super.onResume();
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.v(TAG_CYCLE_ACTIVITY, "onSaveInstanceState");
-        outState.putString("temperatureMain", temperatureMain.getText().toString());
-
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.v(TAG_CYCLE_ACTIVITY, "onRestoreInstanceState");
-        temperatureMain.setText(savedInstanceState.getString("temperatureMain"));
-    }
-
-    @Override
-    protected void onPause() {
-        Log.i(TAG_CYCLE_ACTIVITY, "onPause");
-        Toast.makeText(this, "onPause", Toast.LENGTH_LONG).show();
-        super.onPause();
-    }
-
-    @Override
-    protected void onRestart() {
-        Log.i(TAG_CYCLE_ACTIVITY, "onRestart");
-        Toast.makeText(this, "onRestart", Toast.LENGTH_LONG).show();
-        super.onRestart();
-    }
-
-    @Override
-    protected void onStop() {
-        Log.i(TAG_CYCLE_ACTIVITY, "onStop");
-        Toast.makeText(this, "onStop", Toast.LENGTH_LONG).show();
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        Log.i(TAG_CYCLE_ACTIVITY, "onDestroy");
-        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
-        super.onDestroy();
-    }
 
     private void initHourList() {
         if (LOG) {
@@ -194,5 +138,63 @@ public class SecondActivity extends AppCompatActivity {
             modelVert = new MainModels(days[i]);
             mainModelsVert.add(i, modelVert);
         }
+    }
+
+    @Override
+    protected void onStart() {
+        Log.i(TAG_CYCLE_ACTIVITY, "onStart");
+        Toast.makeText(this, "onStart", Toast.LENGTH_LONG).show();
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.i(TAG_CYCLE_ACTIVITY, "onResume");
+        Toast.makeText(this, "onResume", Toast.LENGTH_LONG).show();
+
+        super.onResume();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.v(TAG_CYCLE_ACTIVITY, "onSaveInstanceState");
+        outState.putString("temperatureMain", temperatureMain.getText().toString());
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.v(TAG_CYCLE_ACTIVITY, "onRestoreInstanceState");
+        temperatureMain.setText(savedInstanceState.getString("temperatureMain"));
+    }
+
+    @Override
+    protected void onPause() {
+        Log.i(TAG_CYCLE_ACTIVITY, "onPause");
+        Toast.makeText(this, "onPause", Toast.LENGTH_LONG).show();
+        super.onPause();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.i(TAG_CYCLE_ACTIVITY, "onRestart");
+        Toast.makeText(this, "onRestart", Toast.LENGTH_LONG).show();
+        super.onRestart();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.i(TAG_CYCLE_ACTIVITY, "onStop");
+        Toast.makeText(this, "onStop", Toast.LENGTH_LONG).show();
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i(TAG_CYCLE_ACTIVITY, "onDestroy");
+        Toast.makeText(this, "onDestroy", Toast.LENGTH_LONG).show();
+        super.onDestroy();
     }
 }
