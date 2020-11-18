@@ -1,21 +1,13 @@
 <resources>
     <string name="app_name">GeekBrainsAndroid</string>
-    <string name="temperature">+%d</string>
+    <string name="city">Санкт-Петербург</string>
+    <string name="temperature">+5</string>
     <string name="feels_like_temperature">По ощущениям +3</string>
     <string name="rain_action">В течении нескольких часов дождь</string>
     <string name="todo">TODO</string>
     <string name="day_temperature">Днем +7</string>
     <string name="night_temperature">Ноч. +2</string>
 
-    <!--City's-->
-    <string name="city">Санкт-Петербург</string>
-    <string name="city2">Новгород</string>
-    <string name="city3">Москва</string>
-    <string name="city4">Екатеринбург</string>
-    <string name="city5">Ростов</string>
-    <string name="city6">Ярославль</string>
-
-    <!--calendar-->
     <string name="today">Сегодня\n25 окт.</string>
     <string name="tomorrow">Завтра\n26 окт.</string>
     <string name="oct_27">Вт\n27 окт.</string>
@@ -27,14 +19,5 @@
     <string name="nov_2">Пн\n2 ноя.</string>
     <string name="nov_3">Вт\n3 ноя.</string>
 
-    <string name="city_search">Выберите город</string>
-    <string name="city_edit_text">Название</string>
-    <string name="choose_checkbox_text">Выберите настройки отображения</string>
-    <string name="check_box_wind">Ветер</string>
-    <string name="check_box_Pressure">Давление</string>
-
-    <string name="other">Другой</string>
-    <string name="yandex_linck">https://yandex.ru/pogoda/saint-petersburg?utm_source=serp&amp;utm_medium=desktop&amp;utm_campaign=wizard&amp;utm_content=wizard_desktop_main&amp;utm_term=main_info&amp;lat=59.951481&amp;lon=30.483906</string>
-    <string name="day_10">10 D.</string>
 
 </resources>

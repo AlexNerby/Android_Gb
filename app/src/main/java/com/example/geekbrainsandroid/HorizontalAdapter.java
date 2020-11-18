@@ -17,7 +17,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
     ArrayList<MainModels> mainModels;
     Context context;
 
-    public  HorizontalAdapter(Context context, ArrayList<MainModels> mainModels) {
+    public HorizontalAdapter(Context context, ArrayList<MainModels> mainModels) {
         this.context = context;
         this.mainModels = mainModels;
     }
@@ -40,7 +40,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
     public int getItemCount() {
         return mainModels.size();
     }
-//
+
     class HorizontalViewHolder extends RecyclerView.ViewHolder {
 
         TextView hourTextView;
@@ -51,5 +51,6 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
             hourTextView = itemView.findViewById(R.id.time_temperature);
             temperatureTextView = itemView.findViewById(R.id.hour_temperature);
         }
+
     }
 }

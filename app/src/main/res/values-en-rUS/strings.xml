@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Weather</string>
-    <string name="temperature">+%d</string>
+    <string name="city">Saint Petersburg</string>
+    <string name="temperature">+5</string>
     <string name="feels_like_temperature">Feels like +3</string>
     <string name="rain_action">it will rain for a while</string>
     <string name="todo">TODO</string>
     <string name="day_temperature">Day +7</string>
     <string name="night_temperature">Ngt. +2</string>
 
-    <!--City's-->
-    <string name="city">Saint Petersburg</string>
-    <string name="city2">Novgorod</string>
-    <string name="city3">Moscow</string>
-    <string name="city4">Ekaterinburg</string>
-    <string name="city5">Rostov</string>
-    <string name="city6">Yaroslavl</string>
-
-    <!--calendar-->
     <string name="today">Today\n25 oct.</string>
     <string name="tomorrow">Tomorrow\n26 oct.</string>
     <string name="oct_27">Tues\n27 oct.</string>
@@ -27,16 +19,4 @@
     <string name="nov_1">Sun\n1 nov.</string>
     <string name="nov_2">Mon\n2 nov.</string>
     <string name="nov_3">Tues\n3 nov.</string>
-
-    <string name="city_search">Select city</string>
-    <string name="city_edit_text">City</string>
-    <string name="choose_checkbox_text">Select display settings</string>
-    <string name="check_box_wind">Wind</string>
-    <string name="check_box_Pressure">Pressure</string>
-
-    <string name="other">Other</string>
-    <string name="yandex_linck">https://yandex.ru/pogoda/saint-petersburg?utm_source=serp&amp;utm_medium=desktop&amp;utm_campaign=wizard&amp;utm_content=wizard_desktop_main&amp;utm_term=main_info&amp;lat=59.951481&amp;lon=30.483906</string>
-    <string name="day_10">10 D.</string>
-
-
 </resources>

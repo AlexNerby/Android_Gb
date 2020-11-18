@@ -12,6 +12,7 @@
         android:layout_width="63dp"
         android:layout_height="34dp"
         android:gravity="center"
+        android:text="+5"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +22,6 @@
         android:id="@+id/imageView"
         android:layout_width="63dp"
         android:layout_height="45dp"
-        android:contentDescription="@string/todo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hour_temperature"
         app:srcCompat="@drawable/rain" />
@@ -32,6 +32,7 @@
         android:layout_height="20dp"
         android:gravity="center"
 
+        android:text="18:00"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

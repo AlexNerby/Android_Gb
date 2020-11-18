@@ -13,6 +13,7 @@ public class MainModels {
     public MainModels(String hour, String temperature) {
         this.hour = hour;
         this.temperature = temperature;
+//        this.day = day;
     }
 
     public MainModels(Integer day) {
