@@ -3,6 +3,7 @@ package com.example.geekbrains2;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,9 +17,9 @@ public class DaysFragment extends Fragment {
     private static final boolean LOG = true;
     public static final String TAG = "weatherFragmentDays";
 
-    String[] days;
-    RecyclerView recyclerView;
-    ReplaceDaysWithHours replaceDaysWithHours;
+    private String[] days;
+    private RecyclerView recyclerView;
+    private ReplaceDaysWithHours replaceDaysWithHours;
 
     public interface ReplaceDaysWithHours{
         void replaceFragment2(String text);
@@ -38,18 +39,19 @@ public class DaysFragment extends Fragment {
         days = getResources().getStringArray(R.array.days);
         recyclerView = view.findViewById(R.id.day_recycler);
 
-        // Эта установка служит для повышения производительности системы
         recyclerView.setHasFixedSize(true);
 
-        // Будем работать со встроенным менеджером
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        // Установим адаптер
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(),  LinearLayoutManager.VERTICAL);
+        itemDecoration.setDrawable(getActivity().getDrawable(R.drawable.separator));
+        recyclerView.addItemDecoration(itemDecoration);
+
         DaysAdapter adapter = new DaysAdapter(days);
         recyclerView.setAdapter(adapter);
 
-        adapter.SetOnItemClickListener(new DaysAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new DaysAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view) {
                 replaceDaysWithHours.replaceFragment2(((TextView)view).getText().toString());

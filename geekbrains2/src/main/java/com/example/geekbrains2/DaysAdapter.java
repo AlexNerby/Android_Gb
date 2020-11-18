@@ -13,9 +13,8 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder> {
     private static final boolean LOG = true;
     private static final String TAG = "weatherDaysAdapter";
 
-    String[] days;
+    private String[] days;
     private DaysAdapter.OnItemClickListener itemClickListener;  // Слушатель будет устанавливаться извне
-
 
     public DaysAdapter(String[] days) {
         this.days = days;
@@ -46,7 +45,7 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder> {
     }
 
     // Сеттер слушателя нажатий
-    public void SetOnItemClickListener(DaysAdapter.OnItemClickListener itemClickListener){
+    public void setOnItemClickListener(DaysAdapter.OnItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
 
@@ -55,13 +54,9 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.day_element);
-
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (itemClickListener != null) {
-                        itemClickListener.onItemClick(view);
-                    }
+            textView.setOnClickListener(view -> {
+                if (itemClickListener != null) {
+                    itemClickListener.onItemClick(view);
                 }
             });
         }

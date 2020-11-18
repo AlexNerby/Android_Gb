@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,15 +19,15 @@ public class CityFragment extends Fragment {
     private static final boolean LOG = true;
     public static final String TAG = "weatherFragmentCity";
 
-    ReplaceCityWithDays replaceCityWithDays;
-    Context context;
+    private ReplaceCityWithDays replaceCityWithDays;
+    private Context context;
 
     public interface ReplaceCityWithDays{
         void replaceFragment(String city);
     }
 
-    String[] citys;
-    RecyclerView recyclerView;
+    private String[] citys;
+    private RecyclerView recyclerView;
 
 
     @Override
@@ -51,20 +52,22 @@ public class CityFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
 
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(context,  LinearLayoutManager.VERTICAL);
+        itemDecoration.setDrawable(context.getDrawable(R.drawable.separator));
+        recyclerView.addItemDecoration(itemDecoration);
         // Установим адаптер
         CityAdapter adapter = new CityAdapter(citys);
         recyclerView.setAdapter(adapter);
+
+
 
         // Установим слушателя
         adapter.SetOnItemClickListener(new CityAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view) {
-                Toast.makeText(context, String.format("%s", ((TextView)view).getText()), Toast.LENGTH_SHORT).show();
-
                 replaceCityWithDays.replaceFragment(((TextView) view).getText().toString());
             }
         });
-
         return view;
     }
 }

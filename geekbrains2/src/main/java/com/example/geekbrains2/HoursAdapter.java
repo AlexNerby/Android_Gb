@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class HoursAdapter extends RecyclerView.Adapter<HoursAdapter.ViewHolder> {
 
-    String[] hours;
+    private String[] hours;
 
     public HoursAdapter(String[] hours) {
         this.hours = hours;

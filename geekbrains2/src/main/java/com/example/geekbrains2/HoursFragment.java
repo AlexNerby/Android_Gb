@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,8 +17,8 @@ public class HoursFragment extends Fragment {
     private static final boolean LOG = true;
     public static final String TAG = "weatherFragmentHours";
 
-    String[] hours;
-    RecyclerView recyclerView;
+    private String[] hours;
+    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -32,6 +33,10 @@ public class HoursFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(),  LinearLayoutManager.VERTICAL);
+        itemDecoration.setDrawable(getActivity().getDrawable(R.drawable.separator));
+        recyclerView.addItemDecoration(itemDecoration);
 
         HoursAdapter adapter = new HoursAdapter(hours);
         recyclerView.setAdapter(adapter);

@@ -9,9 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fontFamily="sans-serif-black"
-        android:text="Day"
         android:textAlignment="textStart"
-        android:textSize="36sp"
+        android:textSize="@dimen/big"
         android:typeface="monospace"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

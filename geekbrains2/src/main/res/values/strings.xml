@@ -1,23 +1,15 @@
 <resources>
-    <string name="app_name">GeekBrains2</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="large_text">
-    </string>
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="app_name">Погода</string>
+<!--    Settings Activity-->
+    <string name="settings_Button_apply">Применить</string>
+    <string name="switch_button_light">светлую</string>
+    <string name="switch_button_dark">темную</string>
+    <string name="radio_button_circle">круглую</string>
+    <string name="radio_button_classic">классическую</string>
+    <string name="text_switch_them">Поменять тему на:</string>
+    
+    
 
     <string name="main_temperature">+5</string>
+    <string name="weather">Weather</string>
 </resources>
