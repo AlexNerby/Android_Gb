@@ -34,7 +34,7 @@ public class HoursFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(),  LinearLayoutManager.VERTICAL);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
         itemDecoration.setDrawable(getActivity().getDrawable(R.drawable.separator));
         recyclerView.addItemDecoration(itemDecoration);
 

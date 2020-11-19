@@ -45,12 +45,13 @@ public class DaysAdapter extends RecyclerView.Adapter<DaysAdapter.ViewHolder> {
     }
 
     // Сеттер слушателя нажатий
-    public void setOnItemClickListener(DaysAdapter.OnItemClickListener itemClickListener){
+    public void setOnItemClickListener(DaysAdapter.OnItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.day_element);

@@ -21,14 +21,13 @@ public class DaysFragment extends Fragment {
     private RecyclerView recyclerView;
     private ReplaceDaysWithHours replaceDaysWithHours;
 
-    public interface ReplaceDaysWithHours{
+    public interface ReplaceDaysWithHours {
         void replaceFragment2(String text);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -44,7 +43,7 @@ public class DaysFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(),  LinearLayoutManager.VERTICAL);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
         itemDecoration.setDrawable(getActivity().getDrawable(R.drawable.separator));
         recyclerView.addItemDecoration(itemDecoration);
 
@@ -54,7 +53,7 @@ public class DaysFragment extends Fragment {
         adapter.setOnItemClickListener(new DaysAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view) {
-                replaceDaysWithHours.replaceFragment2(((TextView)view).getText().toString());
+                replaceDaysWithHours.replaceFragment2(((TextView) view).getText().toString());
             }
         });
         return view;

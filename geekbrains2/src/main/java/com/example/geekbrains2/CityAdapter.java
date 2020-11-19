@@ -11,18 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 
     private static final boolean LOG = true;
     private static final String TAG = "weatherCityAdapter";
 
+    private List<String> getFragmentCityArray;
     private String[] city;
     private OnItemClickListener itemClickListener;  // Слушатель будет устанавливаться извне
 
-    public CityAdapter(String[] city) {
+    public CityAdapter(List<String> city) {
         Log.d(TAG, "Создаем конструктор CityAdapter и вносим массив в адаптер");
-        this.city = city;
+        getFragmentCityArray = new ArrayList<>();
+        this.getFragmentCityArray = city;
+
     }
 
     @NonNull
@@ -31,21 +35,23 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
         Log.d(TAG, "onCreateViewHolder");
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.city_element_recycler, parent, false);
+        city = new String[getFragmentCityArray.size()];
+        for (int i = 0; i < getFragmentCityArray.size(); i++) {
+            city[i] = getFragmentCityArray.get(i);
+        }
         return new ViewHolder(view);
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder");
         holder.textView.setText(city[position]);
-
     }
 
     @Override
     public int getItemCount() {
         Log.d(TAG, "getItemCount");
-        return city.length;
+        return getFragmentCityArray.size();
     }
 
     // Интерфейс для обработки нажатий как в ListView
@@ -54,7 +60,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
     }
 
     // Сеттер слушателя нажатий
-    public void SetOnItemClickListener(OnItemClickListener itemClickListener){
+    public void SetOnItemClickListener(OnItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
     }
 
@@ -77,7 +83,6 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
                     }
                 }
             });
-
         }
     }
 }

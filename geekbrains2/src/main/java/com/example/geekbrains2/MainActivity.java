@@ -1,19 +1,24 @@
 package com.example.geekbrains2;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements CityFragment.ReplaceCityWithDays
+public class MainActivity extends BaseActivity implements CityFragment.ReplaceCityWithDays
         , DaysFragment.ReplaceDaysWithHours {
 
+    private static final int SETTING_CODE = 88;
+
     private static final boolean LOG = true;
-    private static final String TAG = "weatherActivity";
+    public static final String TAG = "weatherActivity";
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
@@ -22,9 +27,7 @@ public class MainActivity extends AppCompatActivity implements CityFragment.Repl
     private HoursFragment hoursFragment;
     private TextView cityMainText;
     private TextView temperatureMainText;
-
     private Button settings;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +39,27 @@ public class MainActivity extends AppCompatActivity implements CityFragment.Repl
 
         daysFragment = new DaysFragment();
         hoursFragment = new HoursFragment();
-
         cityMainText = findViewById(R.id.city_main_activity_text);
         temperatureMainText = findViewById(R.id.temperature_main_activity_text);
+        settings = findViewById(R.id.settings);
+
+        settings.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivityForResult(intent, SETTING_CODE);
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SETTING_CODE) {
+            recreate();
+        }
     }
 
     private void initCityFragment() {
         Log.v(TAG, "Инициализируем City фрагмент");
         cityFragment = new CityFragment();
-        SettingsFragment settingsFragment = new SettingsFragment();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container, cityFragment, CityFragment.TAG);
@@ -61,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements CityFragment.Repl
 
         cityMainText.setText(city);
         temperatureMainText.setText(R.string.main_temperature);
+
+        Bundle bundle = new Bundle();
+        bundle.putString(TAG, city);
+        cityFragment.setArguments(bundle);
     }
 
     @Override
@@ -71,6 +90,5 @@ public class MainActivity extends AppCompatActivity implements CityFragment.Repl
         fragmentTransaction.commit();
 
         temperatureMainText.setText(city);
-
     }
 }

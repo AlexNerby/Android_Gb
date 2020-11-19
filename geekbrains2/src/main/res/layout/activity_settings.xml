@@ -3,17 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
 
     <Switch
         android:id="@+id/switch_them"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_settings_side"
-        android:text="@string/switch_button_dark"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,7 +50,7 @@
     </RadioGroup>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/settings_apply"
         style="@style/my_button.circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,4 +61,5 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
 
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
