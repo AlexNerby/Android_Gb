@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class HoursFragment extends Fragment {
 
     private static final boolean LOG = true;
-    public static final String TAG = "weatherFragmentHours";
+    private static final String TAG = "weatherFragmentHours";
 
     private String[] hours;
     private RecyclerView recyclerView;

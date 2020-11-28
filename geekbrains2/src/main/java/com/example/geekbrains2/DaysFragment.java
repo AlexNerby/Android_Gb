@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class DaysFragment extends Fragment {
 
     private static final boolean LOG = true;
-    public static final String TAG = "weatherFragmentDays";
+    private static final String TAG = "weatherFragmentDays";
 
     private String[] days;
     private RecyclerView recyclerView;

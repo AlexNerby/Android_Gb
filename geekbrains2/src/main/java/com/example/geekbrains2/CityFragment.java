@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.geekbrains2.model.JsonHandler;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -27,7 +28,7 @@ import java.util.regex.Pattern;
 public class CityFragment extends Fragment {
 
     private static final boolean LOG = true;
-    public static final String TAG = "weatherFragmentCity";
+    private static final String TAG = "weatherFragmentCity";
 
     private final Pattern checkAddCity = Pattern.compile("^[A-Z][a-z]{2,}$");
     private ReplaceCityWithDays replaceCityWithDays;
@@ -36,12 +37,12 @@ public class CityFragment extends Fragment {
     private Button buttonOk;
     private String value;
     private List<String> citys;
-    private String[] getResourceArray;
+    private String[] simpleArray;
     private RecyclerView recyclerView;
     private String key = "key";
 
     public interface ReplaceCityWithDays {
-        void replaceFragment(String city);
+        void replaceFragment(String[] city);
     }
 
     @Override
@@ -61,12 +62,12 @@ public class CityFragment extends Fragment {
         context = getActivity();
         recyclerView = view.findViewById(R.id.city_recycler);
         replaceCityWithDays = (ReplaceCityWithDays) context;
-        getResourceArray = getResources().getStringArray(R.array.citys);
-        citys = new ArrayList<>(Arrays.asList(getResourceArray));
+        simpleArray = getResources().getStringArray(R.array.citys);
+        citys = new ArrayList<>(Arrays.asList(simpleArray));
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-            citys.add(bundle.getString(MainActivity.TAG));
+            citys.add(bundle.getString(MainActivity.KEY_BUNDLE));
         }
         // Эта установка служит для повышения производительности системы
         recyclerView.setHasFixedSize(true);
@@ -81,35 +82,15 @@ public class CityFragment extends Fragment {
         CityAdapter adapter = new CityAdapter(citys);
         recyclerView.setAdapter(adapter);
 
-        adapter.SetOnItemClickListener(new CityAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view) {
-                Snackbar.make(view, getResources().getString(R.string.qvest), Snackbar.LENGTH_LONG)
-                        .setAction(R.string.yes, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Toast.makeText(context, getResources().getString(R.string.snackbar_on), Toast.LENGTH_LONG).show();
-                                replaceCityWithDays.replaceFragment(((TextView) view).getText().toString());
-                            }
-                        }).show();
-            }
-        });
+        adapter.SetOnItemClickListener(view1 -> addCity.setText(((TextView) view1).getText()));
 
-        buttonOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick button");
-                TextView tv = (TextView) addCity;
-                validate(tv, checkAddCity, citys);
-                Snackbar.make(view, getResources().getString(R.string.qvest), Snackbar.LENGTH_LONG)
-                        .setAction(R.string.yes, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Toast.makeText(context, getResources().getString(R.string.snackbar_on), Toast.LENGTH_LONG).show();
-                                replaceCityWithDays.replaceFragment(value);
-                            }
-                        }).show();
-            }
+        buttonOk.setOnClickListener((View.OnClickListener) view12 -> {
+            Log.d(TAG, "onClick button");
+            TextView tv = (TextView) addCity;
+            validate(tv, checkAddCity, citys);
+            String[] arr = JsonHandler.weatherParcel(value);
+            Snackbar.make(view12, getResources().getString(R.string.qvest), Snackbar.LENGTH_LONG)
+                    .setAction(R.string.yes, v -> replaceCityWithDays.replaceFragment(arr)).show();
         });
         return view;
     }
